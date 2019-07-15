@@ -1,0 +1,1 @@
+/usr/bin/g++  -g   CMakeFiles/Attendance.dir/main.cpp.o CMakeFiles/Attendance.dir/First.cpp.o  -o Attendance 
