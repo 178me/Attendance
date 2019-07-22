@@ -8,7 +8,9 @@
 #include <iostream>
 #include <fstream>  //使用文件操作
 #include <iomanip>  //设置字符宽度/格式
-#include <string>
+#include <string>   //字符串
+#include <ctime>    //时间日期
+#include <cctype>   //类型函数
 using namespace std;
 #define N 6     //任务数
 class First {
@@ -22,8 +24,8 @@ private:
     int TaskCount[N]{
         0,0,0,0,0,0
     };
-    //暂时不用
-    int _day;
+    //存储时间，分别是年月日
+    int _date[3]{0};
 public:
     First(string name);
     //读取数据
@@ -65,6 +67,26 @@ public:
      * 按照参数来区分读写，1写2读
      * 按照格式写入任务名称数组和打卡记录数组
      * 按照格式读取打卡记录
+     * */
+    void isEndl(char&);
+    /* 解决输入读取换行符的bug*/
+    bool isTime();
+    /* 判断时间
+     * 使用当前日期与变量date比较
+     * 相同提示，否则更新时间
+     * */
+    void Getdate();
+    /* 更新时间
+     * 将本地时间的年月日赋值给date数组
+     * */
+    void Setdate();
+    /* 设置时间
+     * 手动设置：用户输入年月日，然后赋值给date数组
+     * 自动设置：更新时间
+     * */
+    void Savetime(string);
+    /* 保存时间记录
+     * 记录打卡的时间
      * */
 };
 
